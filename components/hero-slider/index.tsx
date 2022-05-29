@@ -3,7 +3,7 @@ import { ReactNode, Children, isValidElement, cloneElement } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Arrow from "./arrow"
-import styles from "./hero-slider.module.scss"
+import styles from "./hero-slider.module.css"
 
 interface SliderProps {
   children: ReactNode

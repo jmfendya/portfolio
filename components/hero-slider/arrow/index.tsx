@@ -1,4 +1,4 @@
-import styles from "./arrow.module.scss"
+import styles from "./arrow.module.css"
 
 interface ArrowProps {
   disabled?: boolean
