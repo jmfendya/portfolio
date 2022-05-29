@@ -1,0 +1,11 @@
+.heading {
+  @apply lg:flex lg:items-center lg:justify-between mt-10 mb-14;
+}
+
+.heading-left {
+  @apply flex-1 min-w-0;
+}
+
+.page-title {
+  @apply text-3xl font-bold leading-7 text-gray-900 sm:text-4xl sm:truncate;
+}

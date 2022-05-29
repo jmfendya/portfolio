@@ -1,0 +1,43 @@
+.navbar-wrapper {
+  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8;
+}
+
+.navbar {
+  @apply relative flex items-center justify-between h-16;
+}
+
+.mobile-nav-icon {
+  @apply absolute inset-y-0 left-0 flex items-center sm:hidden;
+}
+
+.mobile-nav-btn {
+  @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
+}
+
+.mobile-nav {
+  @apply px-2 pt-2 pb-3 space-y-1;
+}
+
+.nav-left {
+  @apply flex-1 flex items-center justify-center sm:items-stretch sm:justify-start;
+}
+
+.nav-brand {
+  @apply flex-shrink-0 flex items-center;
+}
+
+.nav-items-wrapper {
+  @apply hidden sm:block sm:ml-6;
+}
+
+.nav-items {
+  @apply flex space-x-4;
+}
+
+.nav-right {
+  @apply z-10 absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0;
+}
+
+.menu-items {
+  @apply origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
