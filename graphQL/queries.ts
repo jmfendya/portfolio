@@ -1,4 +1,5 @@
-export const getHomeSliderCollection = `#graphql
+// GET HOME SLIDER COLLECTION
+export const GET_HOME_SLIDER_COLLECTION = `#graphql
   query {
     homeSliderCollection {
       items {
