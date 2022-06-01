@@ -18,3 +18,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button[class^="hero-slider_dot"].active {
+  background: #000;
+}
