@@ -4,7 +4,11 @@ const nextConfig = {
   images: {
     domains: ["images.ctfassets.net"],
   },
-  experimental: { images: { layoutRaw: true } },
+  experimental: {
+    images: { layoutRaw: true },
+    runtime: "nodejs",
+    serverComponents: true,
+  },
 }
 
 module.exports = nextConfig
