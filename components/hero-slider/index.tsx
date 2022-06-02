@@ -8,10 +8,10 @@ import styles from "./hero-slider.module.css"
 interface SliderProps {
   children: ReactNode
   looped: boolean
-  sliderIsReady?: () => void
+  // sliderIsReady?: () => void
 }
 
-const HeroSlider = ({ children, looped, sliderIsReady }: SliderProps) => {
+const HeroSlider = ({ children, looped }: SliderProps) => {
   const [loaded, setLoaded] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -22,7 +22,8 @@ const HeroSlider = ({ children, looped, sliderIsReady }: SliderProps) => {
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
       },
-      created(slider) {
+      // created(slider) {
+      created() {
         setLoaded(true)
       },
     },
@@ -74,51 +75,56 @@ const HeroSlider = ({ children, looped, sliderIsReady }: SliderProps) => {
           })
         })}
       </div>
-      <>
-        {/* NAVIGATION ARROWS */}
-        {looped && loaded && instanceRef.current && (
-          <>
-            <Arrow
-              left
-              onClick={(e) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
-            />
 
-            <Arrow
-              onClick={(e) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
-              disabled={
-                currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
-              }
-            />
-          </>
-        )}
+      {looped && (
+        <>
+          {/* NAVIGATION ARROWS */}
+          {loaded && instanceRef.current && (
+            <>
+              <Arrow
+                left
+                onClick={(e) =>
+                  e.stopPropagation() || instanceRef.current?.prev()
+                }
+                disabled={currentSlide === 0}
+              />
 
-        {/* NAVIGATION DOTS */}
-        {looped && loaded && instanceRef.current && (
-          <div className={styles.dots}>
-            {[
-              ...Array(instanceRef.current.track.details.slides.length).keys(),
-            ].map((idx) => {
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    instanceRef.current?.moveToIdx(idx)
-                  }}
-                  className={
-                    styles.dot + (currentSlide === idx ? " active" : "")
-                  }
-                ></button>
-              )
-            })}
-          </div>
-        )}
-      </>
+              <Arrow
+                onClick={(e) =>
+                  e.stopPropagation() || instanceRef.current?.next()
+                }
+                disabled={
+                  currentSlide ===
+                  instanceRef.current.track.details.slides.length - 1
+                }
+              />
+            </>
+          )}
+
+          {/* NAVIGATION DOTS */}
+          {loaded && instanceRef.current && (
+            <div className={styles.dots}>
+              {[
+                ...Array(
+                  instanceRef.current.track.details.slides.length
+                ).keys(),
+              ].map((idx) => {
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      instanceRef.current?.moveToIdx(idx)
+                    }}
+                    className={
+                      styles.dot + (currentSlide === idx ? " active" : "")
+                    }
+                  ></button>
+                )
+              })}
+            </div>
+          )}
+        </>
+      )}
     </div>
   )
 }

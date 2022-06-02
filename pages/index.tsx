@@ -3,7 +3,7 @@ import { fetcher } from "lib/contentful/fetchGraphQL"
 import { GET_HOME_SLIDER_COLLECTION } from "graphQL/queries"
 import HeroSlider from "components/hero-slider"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 
 type SliderImage = {
   url: string
@@ -45,17 +45,14 @@ export const Home = ({
   const looped = images.length > 1
 
   const [isLoading, setIsLoading] = useState(true)
-  const [isReady, setIsReady] = useState(false)
-
-  const sliderIsReady = () => {
-    setIsLoading(false)
-  }
 
   useEffect(() => {
-    setIsReady(true)
-  }, [isReady])
+    setIsLoading(false)
+  }, [isLoading])
 
-  if (isLoading && !isReady)
+  // TODO: Handle Errors
+
+  if (isLoading)
     return (
       <Image
         src={images[0].url}
@@ -69,7 +66,7 @@ export const Home = ({
 
   return (
     <>
-      <HeroSlider looped={looped} sliderIsReady={sliderIsReady}>
+      <HeroSlider looped={looped}>
         {images.map((image: SliderImage, index: number) => (
           <Image
             key={index}
@@ -82,6 +79,7 @@ export const Home = ({
           />
         ))}
       </HeroSlider>
+
       <div
         style={{ backgroundColor: "red", width: "100%", height: "100px" }}
       ></div>
