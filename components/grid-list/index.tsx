@@ -6,7 +6,7 @@ const GridList = () => {
     <div className={styles["grid-4"]}>
       {Array.from({ length: 6 }).map((_, i) => (
         <div className="flex flex-col" key={i}>
-          <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
+          <div className=" bg-white rounded-lg border border-gray-200 shadow-md ">
             <a href="#">
               <Image
                 src="/placeholder-image.png"
