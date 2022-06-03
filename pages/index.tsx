@@ -4,6 +4,7 @@ import { GET_HOME_SLIDER_COLLECTION } from "graphQL/queries"
 import HeroSlider from "components/hero-slider"
 import Image from "next/image"
 import { Suspense, useEffect, useState } from "react"
+import GridList from "components/grid-list"
 
 type SliderImage = {
   url: string
@@ -80,25 +81,7 @@ export const Home = ({
         ))}
       </HeroSlider>
 
-      <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xs:gap-12 sm:gap-10 md:gap-8">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div className="flex flex-col" key={i}>
-            <Image
-              src="/placeholder-image.png"
-              layout="responsive"
-              alt="test image"
-              width={292}
-              height={219}
-            />
-            <div style={{ textAlign: "center" }}>Project #</div>
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              voluptatum nesciunt corporis, voluptatibus odio corrupti officia
-              veniam error veritatis vitae?
-            </div>
-          </div>
-        ))}
-      </div>
+      <GridList />
     </>
   )
 }
