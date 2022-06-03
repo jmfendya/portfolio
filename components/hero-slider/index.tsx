@@ -60,7 +60,7 @@ const HeroSlider = ({ children, looped }: SliderProps) => {
   )
 
   return (
-    <div className={styles["navigation-wrapper"]}>
+    <div className={styles["slider-wrapper"]}>
       <div ref={sliderRef} className="keen-slider">
         {/* BUILD SLIDES FROM CHILDREN */}
         {Children.map(children, (child) => {
