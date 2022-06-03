@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
       {/* Navbar */}
       <Navbar />
 
-      {/* childrem */}
+      {/* children */}
       <div className={styles.wrapper}>{children}</div>
 
       {/* Footer */}
