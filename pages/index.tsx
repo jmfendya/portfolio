@@ -80,9 +80,25 @@ export const Home = ({
         ))}
       </HeroSlider>
 
-      <div
-        style={{ backgroundColor: "red", width: "100%", height: "100px" }}
-      ></div>
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xs:gap-12 sm:gap-10 md:gap-8">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div className="flex flex-col" key={i}>
+            <Image
+              src="/placeholder-image.png"
+              layout="responsive"
+              alt="test image"
+              width={292}
+              height={219}
+            />
+            <div style={{ textAlign: "center" }}>Project #</div>
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+              voluptatum nesciunt corporis, voluptatibus odio corrupti officia
+              veniam error veritatis vitae?
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
