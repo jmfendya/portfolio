@@ -1,0 +1,93 @@
+.skeleton-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton {
+  background: #ebebeb;
+  margin: 10px 0;
+  border-radius: 4px;
+  color: #999;
+}
+
+.skeleton.text {
+  width: 100%;
+  height: 12px;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.skeleton.img {
+  width: 100%;
+  height: 215px;
+}
+
+.skeleton.card-img {
+  margin-top: 0;
+  width: 100%;
+  height: 215px;
+}
+
+.skeleton.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.skeleton.hero {
+  margin-top: 0;
+  margin-bottom: 30px;
+  width: 1216px;
+  height: 608px;
+}
+
+.skeleton.button {
+  width: 33%;
+  height: 32px;
+  margin: 15px 0;
+}
+
+.grid-4 {
+  @apply grid xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xs:gap-4 md:gap-6;
+}
+
+.skeleton-card {
+  @apply bg-white rounded-lg border border-gray-200 shadow-md;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.shimmer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 2.5s infinite;
+}
+
+.shimmer {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
