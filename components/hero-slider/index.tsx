@@ -1,14 +1,18 @@
-import { useState } from "react"
-import { ReactNode, Children, isValidElement, cloneElement } from "react"
+import {
+  ReactNode,
+  Children,
+  isValidElement,
+  cloneElement,
+  useState,
+} from "react"
 import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
 import Arrow from "./arrow"
+import "keen-slider/keen-slider.min.css"
 import styles from "./hero-slider.module.css"
 
 interface SliderProps {
   children: ReactNode
   looped: boolean
-  // sliderIsReady?: () => void
 }
 
 const HeroSlider = ({ children, looped }: SliderProps) => {
@@ -22,7 +26,6 @@ const HeroSlider = ({ children, looped }: SliderProps) => {
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
       },
-      // created(slider) {
       created() {
         setLoaded(true)
       },
