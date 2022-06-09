@@ -2,13 +2,15 @@ import Skeleton from "../index"
 import Shimmer from "../shimmer"
 import styles from "../skeleton.module.css"
 
-const SkeletonCardGrid = () => {
-  const cardNum = 4
+type SkeletonCardGridProps = {
+  projectNum: number
+}
 
+const SkeletonCardGrid = ({ projectNum }: SkeletonCardGridProps) => {
   return (
     <div className={styles["grid-4"]}>
       {/* LIST */}
-      {Array.from({ length: cardNum }).map((_, i) => (
+      {Array.from({ length: projectNum }).map((_, i) => (
         <div className={`flex flex-col `} key={i}>
           {/* CARD */}
           <div className={`${styles["skeleton-card"]} `}>
