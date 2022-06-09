@@ -1,23 +1,25 @@
+import { useEffect, useState } from "react"
 import type { InferGetStaticPropsType } from "next"
-import { fetcher } from "lib/contentful/fetchGraphQL"
-import { GET_HOME_SLIDER_COLLECTION } from "graphQL/queries"
-import HeroSlider from "components/hero-slider"
 import Image from "next/image"
-import { Suspense, useEffect, useState } from "react"
+import { fetcher } from "lib/contentful/fetchGraphQL"
+import { GET_HOME_PAGE } from "graphQL/queries"
+import HeroSlider from "components/hero-slider"
 import GridList from "components/grid-list"
+import SkeletonHero from "components/skeleton/hero"
+import SkeletonCardGrid from "components/skeleton/card-grid"
 
 type SliderImage = {
+  sys: { id: string }
   url: string
   width: number
   height: number
   alt: string
-  sys: {}
   title: string
   fileName: string
 }
 
 export const getStaticProps = async () => {
-  const { data, error } = await fetcher(GET_HOME_SLIDER_COLLECTION)
+  const { data, error } = await fetcher(GET_HOME_PAGE)
 
   // TODO: Check for errors
   if (error) {
@@ -34,6 +36,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       images: sliderImagesCollection.items,
+      projects: data.projectCollection.items,
       error,
     },
   }
@@ -42,31 +45,32 @@ export const getStaticProps = async () => {
 export const Home = ({
   error,
   images,
+  projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const looped = images.length > 1
+  const projectNum = projects.length <= 3 ? 4 : projects.length
 
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(false)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+    // setIsLoading(false)
   }, [isLoading])
 
   // TODO: Handle Errors
 
   if (isLoading)
     return (
-      <Image
-        src={images[0].url}
-        width={images[0].width}
-        height={images[0].height}
-        alt={images[0].title}
-        layout="raw"
-        priority
-      />
+      <>
+        <SkeletonHero />
+        <SkeletonCardGrid projectNum={projectNum} />
+      </>
     )
 
   return (
-    <>
+    <main>
       <HeroSlider looped={looped}>
         {images.map((image: SliderImage, index: number) => (
           <Image
@@ -81,8 +85,8 @@ export const Home = ({
         ))}
       </HeroSlider>
 
-      <GridList />
-    </>
+      <GridList projects={projects} />
+    </main>
   )
 }
 
