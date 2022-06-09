@@ -1,16 +1,10 @@
-import { Fragment } from "react"
 import { useRouter } from "next/router"
-import { Disclosure, Menu, Transition } from "@headlessui/react"
-import { MenuIcon, XIcon, UserCircleIcon } from "@heroicons/react/outline"
+import { Disclosure } from "@headlessui/react"
+import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import styles from "./navbar.module.css"
 import Link from "next/link"
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Experience", href: "/experience" },
-  { name: "Education", href: "/education" },
-  { name: "Contact", href: "/contact" },
-]
+import { navigation } from "content/navigation"
 
 // CLASSNAMES
 function classNames(...classes: any) {
@@ -64,16 +58,19 @@ const Navbar = () => {
                 <Link href="/">
                   <a className="cursor-pointer">
                     <div className={styles["nav-brand"]}>
-                      <img
+                      {/* <img
                         className="block lg:hidden h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                         alt="Workflow"
-                      />
-                      <img
+                      /> */}
+                      {/* <img
                         className="hidden lg:block h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                         alt="Workflow"
-                      />
+                      /> */}
+                      <span style={{ fontSize: 24, color: "white" }}>
+                        JMFendya
+                      </span>
                     </div>
                   </a>
                 </Link>
