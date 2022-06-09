@@ -1,4 +1,4 @@
-import { Navbar } from "components/ui"
+import { Footer, Navbar } from "components/ui"
 import styles from "./layout.module.css"
 
 type Props = {
@@ -15,7 +15,7 @@ const Layout = ({ children }: Props) => {
       <div className={styles.wrapper}>{children}</div>
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
