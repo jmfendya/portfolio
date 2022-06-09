@@ -1,5 +1,5 @@
-// GET HOME SLIDER COLLECTION
-export const GET_HOME_SLIDER_COLLECTION = `#graphql
+// GET HOME PAGE
+export const GET_HOME_PAGE = `#graphql
   query {
     homeSliderCollection {
       items {
@@ -15,6 +15,27 @@ export const GET_HOME_SLIDER_COLLECTION = `#graphql
               id
             }
           }
+        }
+      }
+    }
+    projectCollection {
+      items {
+        sys {
+          id
+        }
+        title
+        slug
+        category
+        employer
+        client
+        excerpt
+        thumbnail {
+          title
+          description
+          fileName
+          url
+          width
+          height
         }
       }
     }
