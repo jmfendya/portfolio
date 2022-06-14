@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ProjectCardType } from "types/project"
 import styles from "./card.module.css"
 
@@ -9,23 +10,27 @@ type ProjectCardProps = {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className={styles.card}>
-      <a className={styles.img} href="#">
-        <Image
-          src={project.thumbnail.url}
-          alt={project.title}
-          width={project.thumbnail.width}
-          height={project.thumbnail.height}
-          layout="responsive"
-        />
-      </a>
+      <Link href={`/projects/project/${project.slug}`}>
+        <a className={styles.img}>
+          <Image
+            src={project.thumbnail.url}
+            alt={project.title}
+            width={project.thumbnail.width}
+            height={project.thumbnail.height}
+            layout="responsive"
+          />
+        </a>
+      </Link>
       <div className={styles.content}>
-        <a href="#">
-          <h5 className={styles.title}>{project.title}</h5>
-        </a>
+        <Link href={`/projects/project/${project.slug}`}>
+          <a>
+            <h5 className={styles.title}>{project.title}</h5>
+          </a>
+        </Link>
         <p className={styles.excerpt}>{project.excerpt}</p>
-        <a href="#" className={styles.btn}>
-          View Project
-        </a>
+        <Link href={`/projects/project/${project.slug}`}>
+          <a className={styles.btn}>View Project</a>
+        </Link>
       </div>
     </div>
   )
