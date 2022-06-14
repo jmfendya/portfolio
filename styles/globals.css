@@ -19,6 +19,10 @@ a {
   box-sizing: border-box;
 }
 
+.main {
+  margin-bottom: 6rem;
+}
+
 /* HERO SLIDER DOTS */
 button[class^="hero-slider_dot"].active {
   background: #000;
