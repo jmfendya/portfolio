@@ -12,7 +12,7 @@ import styles from "./hero-slider.module.css"
 
 interface SliderProps {
   children: ReactNode
-  looped: boolean
+  looped?: boolean
 }
 
 const HeroSlider = ({ children, looped }: SliderProps) => {
