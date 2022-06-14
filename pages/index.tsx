@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { InferGetStaticPropsType } from "next"
+import type { GetStaticProps, InferGetStaticPropsType } from "next"
 import Image from "next/image"
 import { fetcher } from "lib/contentful/fetchGraphQL"
 import { GET_HOME_PAGE } from "graphQL/queries"
@@ -18,7 +18,7 @@ type SliderImage = {
   fileName: string
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { data, error } = await fetcher(GET_HOME_PAGE)
 
   // TODO: Check for errors
@@ -70,7 +70,8 @@ export const Home = ({
     )
 
   return (
-    <main>
+    <>
+      {/* HERO SLIDER */}
       <HeroSlider looped={looped}>
         {images.map((image: SliderImage, index: number) => (
           <Image
@@ -85,8 +86,9 @@ export const Home = ({
         ))}
       </HeroSlider>
 
+      {/* GRID LIST */}
       <GridList projects={projects} />
-    </main>
+    </>
   )
 }
 
