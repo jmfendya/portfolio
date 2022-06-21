@@ -54,10 +54,10 @@ export const Home = ({
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
-    // setIsLoading(false)
+    // setTimeout(() => {
+    //   setIsLoading(false)
+    // }, 3000)
+    setIsLoading(false)
   }, [isLoading])
 
   // TODO: Handle Errors
