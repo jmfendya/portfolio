@@ -39,6 +39,7 @@ export const getStaticProps: GetStaticProps = async () => {
       projects: data.projectCollection.items,
       error,
     },
+    revalidate: 60,
   }
 }
 
