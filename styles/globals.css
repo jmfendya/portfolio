@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "styles/grid-4.css";
+
 html,
 body {
   padding: 0;
@@ -22,4 +24,10 @@ a {
 /* HERO SLIDER DOTS */
 button[class^="hero-slider_dot"].active {
   background: #000;
+}
+
+.not-found {
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
