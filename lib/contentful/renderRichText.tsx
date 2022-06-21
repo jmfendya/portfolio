@@ -14,7 +14,7 @@ export const renderOptions = (links: any) => {
   }
 
   return {
-    // other options...[renderMark:, renderText:]
+    // other options...[renderMark:, renderText: renderNode:]
 
     renderNode: {
       // PARAGRAPH
@@ -43,9 +43,18 @@ export const renderOptions = (links: any) => {
             width={asset.width}
             height={asset.height}
             alt={asset.title}
+            layout="raw"
           />
         )
       },
+    },
+
+    renderText: (text: any) => {
+      return text
+        .split("\n")
+        .reduce((children: any, textSegment: any, index: number) => {
+          return [...children, index > 0 && <br key={index} />, textSegment]
+        }, [])
     },
   }
 }
