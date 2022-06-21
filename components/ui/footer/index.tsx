@@ -9,7 +9,7 @@ const Footer = () => {
             <p className="mb-6 text-white text-sm text-primary-2 font-bold">
               {navigation.map((item: any) => (
                 <span className="pr-8" key={item.name}>
-                  <a href="">{item.name}</a>
+                  <a href={item.href}>{item.name}</a>
                 </span>
               ))}
               <span className="">Copyright © {new Date().getFullYear()}</span>

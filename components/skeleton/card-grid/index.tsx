@@ -8,7 +8,7 @@ type SkeletonCardGridProps = {
 
 const SkeletonCardGrid = ({ projectNum }: SkeletonCardGridProps) => {
   return (
-    <div className={styles["grid-4"]}>
+    <div className="grid-4">
       {/* LIST */}
       {Array.from({ length: projectNum }).map((_, i) => (
         <div className={`flex flex-col `} key={i}>

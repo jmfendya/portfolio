@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import styles from "./heading.module.scss"
+import styles from "./heading.module.css"
 
 type PageHeadingProps = {
   children?: ReactNode
