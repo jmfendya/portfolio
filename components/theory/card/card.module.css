@@ -1,0 +1,3 @@
+.theory-card:not(:first-child) article img {
+  @apply hidden sm:block;
+}

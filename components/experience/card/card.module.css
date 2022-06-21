@@ -1,0 +1,7 @@
+.position h2 {
+  margin-top: 0;
+}
+
+.description p:first-child {
+  margin-top: 0;
+}
