@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="py-0">
             <p className="mb-6 text-white text-sm text-primary-2 font-bold">
               {navigation.map((item: any) => (
-                <span className="pr-8" key={item.name}>
+                <span className="pr-8 inline-block" key={item.name}>
                   <a href={item.href}>{item.name}</a>
                 </span>
               ))}
